@@ -31,10 +31,13 @@ from alpaca.trading.enums import OrderSide, TimeInForce
 import matplotlib.pyplot as plt
 from alpaca.data.historical import CryptoHistoricalDataClient
 from alpaca.data.requests import CryptoBarsRequest
-
+from dotenv import load_dotenv
+import os
+load_dotenv("key.env")
 ######################### Set up Alpaca credentials
-alpaca_api_key = "Your KEY"
-alpaca_secret_key = "Your Key"
+alpaca_api_key = os.getenv("Alpaca_Paper_Key_ID")
+alpaca_secret_key = os.getenv("Alpaca_Paper_Secret_Key")
+
 alpaca = REST(alpaca_api_key, alpaca_secret_key, "https://paper-api.alpaca.markets")
 trading_client = TradingClient(alpaca_api_key, alpaca_secret_key)
 account = trading_client.get_account()
@@ -82,7 +85,7 @@ if st.button("Monte Carlo Optimization"):
 # Efficient Frontier optimization and plots
 
 if st.button("Efficient Frontier"):
-   st.title('Efficient Frontier Optimization')
+    st.title('Efficient Frontier Optimization')
     #ef = EfficientFrontier(pf.comp_mean_returns(), pf.comp_cov())
     #ig, ax = plt.subplots(figsize=(8,6))
     #opy = ef
@@ -91,22 +94,22 @@ if st.button("Efficient Frontier"):
 
     #lotting.plot_efficient_frontier(ef, ax=ax, show_assets=False)
     # Find the tangency portfolio
-    
+
     #ret_tangent, std_tangent, _ = ef_max_sharpe.portfolio_performance()
     #ax.scatter(std_tangent, ret_tangent, marker="*", s=100, c="r", label="Max Sharpe")
-   # rets = pf.dot(ef.expected_returns)
-   # stds = np.sqrt(np.diag(w @ ef.cov_matrix @ w.T))
-   # sharpes = rets / stds
-   # ax.scatter(stds, rets, marker=".", c=sharpes, cmap="viridis_r")
+    # rets = pf.dot(ef.expected_returns)
+    # stds = np.sqrt(np.diag(w @ ef.cov_matrix @ w.T))
+    # sharpes = rets / stds
+    # ax.scatter(stds, rets, marker=".", c=sharpes, cmap="viridis_r")
 
     # Output
-    
+
     #ax.set_title("Efficient Frontier with random portfolios")
     #ax.legend()
     #plt.tight_layout()
     #plt.show()
 
-    
+
     #st.plotly_chart(fig)
 
 ############################################################   

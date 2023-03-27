@@ -33,8 +33,8 @@ from alpaca.data.historical import CryptoHistoricalDataClient
 from alpaca.data.requests import CryptoBarsRequest
 
 ######################### Set up Alpaca credentials
-alpaca_api_key = "PKQBL03EZARUR11HPGMH"
-alpaca_secret_key = "OFt0b5kvhoiTnuhmTZpptfXzD0ghdHyxEpzJgVZ2"
+alpaca_api_key = "Your KEY"
+alpaca_secret_key = "Your Key"
 alpaca = REST(alpaca_api_key, alpaca_secret_key, "https://paper-api.alpaca.markets")
 trading_client = TradingClient(alpaca_api_key, alpaca_secret_key)
 account = trading_client.get_account()
